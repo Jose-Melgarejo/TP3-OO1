@@ -19,6 +19,7 @@ public class TestListas {
 			elem = in.next();
 			if (!(elem.equalsIgnoreCase("stop"))) lista.add(elem);
 		}
+		in.close();
 		
 		System.out.println("1) Impresion usando Foreach loop.");
 		for (String s : lista) {
