@@ -20,6 +20,7 @@ public class Incaa {
 	
 	private boolean existePelicula(String titulo) {
 		boolean resultado = false;
+		//Optimizar busqueda
 		
 		for (Pelicula p : this.catalogo) {
 			if (p.getPelicula() == titulo) {
@@ -29,14 +30,14 @@ public class Incaa {
 		return resultado;
 	}
 
-	
+	//Corregir id autoincremental
 	public void agregarPelicula(String pelicula,Genero genero) throws Exception{
 		if (existePelicula(pelicula)) throw new Exception("Error: La pelicula ya existe");
 		int id = this.catalogo.size()+1;
 		this.catalogo.add(new Pelicula(id,pelicula,genero));
 	}
 	
-	public Pelicula traerPelicula(int id) throws Exception{
+	public Pelicula traerPelicula(int id) {
 		Pelicula resultado = null;
 		
 		for (Pelicula p: this.catalogo) {
@@ -44,7 +45,28 @@ public class Incaa {
 				resultado = p;
 			}
 		}
-		if (resultado == null) throw new Exception("Error: No existe la pelicula");
+	
 		return resultado;
 	}
+	public Pelicula traerPelicula(String pelicula) {
+		Pelicula resultado = null;
+		
+		for (Pelicula p: this.catalogo) {
+			if (p.getPelicula() == pelicula) {
+				resultado = p;
+			}
+		}
+		return resultado;
+	}
+	public Pelicula traerPelicula(Genero genero) {
+		Pelicula resultado = null;
+		
+		for (Pelicula p: this.catalogo) {
+			if (p.getGenero() == genero) {
+				resultado = p;
+			}
+		}
+		return resultado;
+	}
+	
 }
