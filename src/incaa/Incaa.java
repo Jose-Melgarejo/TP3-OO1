@@ -17,23 +17,11 @@ public class Incaa {
 	public void setCatalogo(List<Pelicula> catalogo) {
 		this.catalogo = catalogo;
 	}
-	
-	private boolean existePelicula(String titulo) {
-		boolean resultado = false;
-		
-		for (int i = 0; i < catalogo.size() && !resultado; i++) {
-			if (catalogo.get(i).getPelicula().compareToIgnoreCase(titulo) == 0) {
-				resultado = true;
-			}
-		}
-
-		return resultado;
-	}
 
 	public void agregarPelicula(String pelicula,Genero genero) throws Exception{
 		int tam_catalogo, id;
 		
-		if (existePelicula(pelicula)) throw new Exception("Error: La pelicula ya existe");
+		if (traerPelicula(pelicula) == null) throw new Exception("Error: La pelicula ya existe");
 		
 		tam_catalogo = this.catalogo.size();
 		if (tam_catalogo == 0) {
@@ -46,31 +34,33 @@ public class Incaa {
 	
 	public Pelicula traerPelicula(int id) {
 		Pelicula resultado = null;
+		boolean  stop = false;
 		
-		for (Pelicula p: this.catalogo) {
-			if (p.getIdPelicula() == id) {
-				resultado = p;
-			}
-		}
+		for (int i = 0; i < catalogo.size() && !stop; i++) {
+			stop = true;
+			resultado = catalogo.get(i);
+		}	
+		return resultado;
+	}
 	
-		return resultado;
-	}
-	public Pelicula traerPelicula(String pelicula) {
+	public Pelicula traerPelicula(String titulo) {
 		Pelicula resultado = null;
+		boolean stop = false;
 		
-		for (Pelicula p: this.catalogo) {
-			if (p.getPelicula() == pelicula) {
-				resultado = p;
+		for (int i = 0; i < catalogo.size() && !stop; i++) {
+			if (catalogo.get(i).getPelicula().compareToIgnoreCase(titulo) == 0) {
+				stop = true;
+				resultado = catalogo.get(i);
 			}
 		}
 		return resultado;
 	}
-	public Pelicula traerPelicula(Genero genero) {
-		Pelicula resultado = null;
+	public List<Pelicula> traerPelicula(Genero genero) {
+		List<Pelicula> resultado = new ArrayList<Pelicula>();
 		
 		for (Pelicula p: this.catalogo) {
 			if (p.getGenero() == genero) {
-				resultado = p;
+				resultado.add(p);
 			}
 		}
 		return resultado;
