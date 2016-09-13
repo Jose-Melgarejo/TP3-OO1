@@ -3,7 +3,7 @@ package incaa;
 public class Pelicula {
 	private int    idPelicula = 0;
 	private String Pelicula = "";
-	
+	private Genero gnro;
 	public Pelicula(int idPelicula, String pelicula) {
 		this.idPelicula = idPelicula;
 		Pelicula = pelicula;
