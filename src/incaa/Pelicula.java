@@ -1,9 +1,9 @@
 package incaa;
 
 public class Pelicula {
-	private int    idPelicula = 0;
-	private String Pelicula = "";
-	private Genero genero = null;
+	private int    idPelicula;
+	private String Pelicula;
+	private Genero genero;
 	public Pelicula(int idPelicula, String pelicula,Genero genero) {
 		setIdPelicula(idPelicula);
 		setPelicula(pelicula);
