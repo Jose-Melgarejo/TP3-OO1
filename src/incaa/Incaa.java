@@ -30,10 +30,10 @@ public class Incaa {
 	}
 
 	
-	public void agregarPelicula(String pelicula, int id) throws Exception{
+	public void agregarPelicula(String pelicula,Genero genero) throws Exception{
 		if (existePelicula(pelicula)) throw new Exception("Error: La pelicula ya existe");
-		
-		this.catalogo.add(new Pelicula(id, pelicula));
+		int id = this.catalogo.size()+1;
+		this.catalogo.add(new Pelicula(id,pelicula,genero));
 	}
 	
 	public Pelicula traerPelicula(int id) throws Exception{

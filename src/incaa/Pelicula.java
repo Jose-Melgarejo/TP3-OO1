@@ -3,10 +3,12 @@ package incaa;
 public class Pelicula {
 	private int    idPelicula = 0;
 	private String Pelicula = "";
-	private Genero gnro;
-	public Pelicula(int idPelicula, String pelicula) {
-		this.idPelicula = idPelicula;
-		Pelicula = pelicula;
+	private Genero genero = null;
+	public Pelicula(int idPelicula, String pelicula,Genero genero) {
+		setIdPelicula(idPelicula);
+		setPelicula(pelicula);
+		setGenero(genero);
+		
 	}
 
 	public int getIdPelicula() {
@@ -23,6 +25,14 @@ public class Pelicula {
 
 	public void setPelicula(String pelicula) {
 		Pelicula = pelicula;
+	}
+
+	public Genero getGenero() {
+		return genero;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
 	}
 	
 	
