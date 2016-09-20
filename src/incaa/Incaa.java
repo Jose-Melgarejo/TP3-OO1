@@ -37,9 +37,12 @@ public class Incaa {
 		boolean  stop = false;
 		
 		for (int i = 0; i < catalogo.size() && !stop; i++) {
-			stop = true;
-			resultado = catalogo.get(i);
-		}	
+			if(catalogo.get(i).getIdPelicula() == id){
+				stop = true;
+				resultado = catalogo.get(i);
+			}
+		}
+		
 		return resultado;
 	}
 	
@@ -76,6 +79,9 @@ public class Incaa {
 			}
 		}
 		return resultado;
+	}
+	public boolean borrarPelicula2 (Pelicula peli){
+		return catalogo.remove(peli);
 	}
 	
 	public boolean modificarPelicula (Pelicula pelicula, String titulo) {
