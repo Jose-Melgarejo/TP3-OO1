@@ -6,8 +6,8 @@ import java.util.List;
 public class Incaa {
 	private List<Pelicula> catalogo = new ArrayList<Pelicula>();
 
-	public Incaa(List<Pelicula> catalogo) {
-		this.catalogo = catalogo;
+	public Incaa() {
+		
 	}
 
 	public List<Pelicula> getCatalogo() {
@@ -55,6 +55,7 @@ public class Incaa {
 		}
 		return resultado;
 	}
+	
 	public List<Pelicula> traerPelicula(Genero genero) {
 		List<Pelicula> resultado = new ArrayList<Pelicula>();
 		
@@ -66,4 +67,36 @@ public class Incaa {
 		return resultado;
 	}
 	
+	public boolean borrarPelicula (Pelicula pelicula) {
+		boolean resultado = false;
+		for (int i = 0; i < catalogo.size() && !resultado; i++) {
+			if (catalogo.get(i).getIdPelicula() == pelicula.getIdPelicula()) {
+				resultado = true;
+				catalogo.remove(i);
+			}
+		}
+		return resultado;
+	}
+	
+	public boolean modificarPelicula (Pelicula pelicula, String titulo) {
+		boolean resultado = false;
+		for (int i = 0; i < catalogo.size() && !resultado; i++) {
+			if (catalogo.get(i).getIdPelicula() == pelicula.getIdPelicula()) {
+				resultado = true;
+				catalogo.get(i).setPelicula(titulo);
+			}
+		}
+		return resultado;
+	}
+	
+	public boolean modificarPelicula (Pelicula pelicula, Genero genero) {
+		boolean resultado = false;
+		for (int i = 0; i < catalogo.size() && !resultado; i++) {
+			if (catalogo.get(i).getIdPelicula() == pelicula.getIdPelicula()) {
+				resultado = true;
+				catalogo.get(i).setGenero(genero);
+			}
+		}
+		return resultado;
+	}
 }

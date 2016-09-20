@@ -4,6 +4,7 @@ public class Pelicula {
 	private int    idPelicula;
 	private String Pelicula;
 	private Genero genero;
+	
 	public Pelicula(int idPelicula, String pelicula,Genero genero) {
 		setIdPelicula(idPelicula);
 		setPelicula(pelicula);
