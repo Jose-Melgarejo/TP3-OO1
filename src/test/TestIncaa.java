@@ -21,9 +21,36 @@ public class TestIncaa {
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		System.out.println(incaa.traerPelicula(1));
+		System.out.println("\ntraer pelicula por id\n");
+		System.out.println(incaa.traerPelicula(3).toString());
 		
-
+		
+		System.out.println("\ntraer pelicula por nombre\n");
+		System.out.println(incaa.traerPelicula("Duro de matar").toString());
+		//
+		System.out.println("\ntraer lista de peliculas por genero\n");
+		for (int i = 0;i < incaa.traerPelicula(genero).size();i++){
+		
+			System.out.println(incaa.traerPelicula(genero).get(i).toString());
+		}
+		
+		//borrar pelicula 
+		if(incaa.borrarPelicula(incaa.traerPelicula("pelicula 1"))){
+			System.out.println("Pelicula Borrada");
+		}else{
+			System.out.println("Pelicula no encontrada");
+		}
+			
+		Pelicula pelimodifica = new Pelicula (99, "Chuky2", genero);
+		pelimodifica.setIdPelicula(incaa.traerPelicula("Chuky").getIdPelicula());
+		try{
+			incaa.modificarPelicula(pelimodifica);
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+		System.out.println("Pelicula modificada\n"+incaa.traerPelicula(1));
+		
+		
 	}
 
 }
