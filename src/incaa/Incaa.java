@@ -21,7 +21,7 @@ public class Incaa {
 	public void agregarPelicula(String pelicula,Genero genero) throws Exception{
 		int tam_catalogo, id;
 		
-		if (traerPelicula(pelicula) == null) throw new Exception("Error: La pelicula ya existe");
+		if (traerPelicula(pelicula) != null) throw new Exception("Error: La pelicula ya existe");
 		
 		tam_catalogo = this.catalogo.size();
 		if (tam_catalogo == 0) {
@@ -99,4 +99,13 @@ public class Incaa {
 		}
 		return resultado;
 	}
+	
+	public void modificarPelicula (Pelicula pelicula) throws Exception {
+		if (traerPelicula(pelicula.getIdPelicula()) == null) throw new Exception("Error: No existe la pelicula.");
+		
+		traerPelicula(pelicula.getIdPelicula()).setGenero(pelicula.getGenero());
+		traerPelicula(pelicula.getIdPelicula()).setPelicula(pelicula.getPelicula());
+	}
+	
+	
 }
