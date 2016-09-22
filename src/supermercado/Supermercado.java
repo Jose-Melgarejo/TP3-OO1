@@ -26,7 +26,7 @@ public class Supermercado {
 	
 	public Producto traerProducto(String producto) {
 		Producto resultado = null;
-		for (int i = 0; i < gondola.size() && resultado != null; i++) {
+		for (int i = 0; i < gondola.size() && resultado == null; i++) {
 			if (gondola.get(i).getProducto().compareToIgnoreCase(producto) == 0) {
 				resultado = gondola.get(i);
 			}
