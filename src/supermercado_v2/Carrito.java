@@ -1,4 +1,4 @@
-package supermercado2_jose;
+package supermercado_v2;
 
 import java.util.GregorianCalendar;
 import java.util.ArrayList;

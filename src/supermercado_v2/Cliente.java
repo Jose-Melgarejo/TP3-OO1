@@ -1,4 +1,4 @@
-package supermercado2_jose;
+package supermercado_v2;
 
 public class Cliente {
 	private int idCliente;

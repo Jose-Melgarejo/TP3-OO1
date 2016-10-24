@@ -1,4 +1,4 @@
-package supermercado2_jose;
+package supermercado_v2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +20,10 @@ public class AdmCarrito {
 		this.lstCarrito = lstCarrito;
 		
 	}
-	public boolean agregarCarrito(Carrito carrito)
+	
+	public boolean agregarCarrito(Carrito carrito) {
+		boolean resultado = false;
+		return resultado;
+	}
 
 }
