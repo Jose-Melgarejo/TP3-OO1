@@ -27,7 +27,7 @@ public class AdmCliente {
 	public boolean agregarCliente(String cliente, long dni, String direccion) throws Exception{
 		int tam_lst, idCliente = 0;
 		
-		if (traerCliente(cliente) != null) throw new Exception("Error: El cliente ya existe");
+		if (traerCliente(dni) != null) throw new Exception("Error: El cliente ya existe");
 		
 		tam_lst = this.lstCliente.size();
 		if (tam_lst == 0) {
@@ -40,11 +40,11 @@ public class AdmCliente {
 		return true;
 		
 	}
-	public Cliente traerCliente(String nombre) {
+	public Cliente traerCliente(long ndni) {
 		Cliente cliente = null;
 		boolean stop = false;
 		for (int i = 0; i < lstCliente.size() && !stop; i++) {
-			if(lstCliente.get(i).getNombre().compareToIgnoreCase(nombre) == 0){
+			if(lstCliente.get(i).getDni() == ndni){
 				stop = true;
 				cliente = lstCliente.get(i);
 			}
@@ -69,7 +69,7 @@ public class AdmCliente {
 	
 	public boolean eliminarCliente(Cliente cliente) throws Exception{
 		
-		if(traerCliente(cliente.getIdCliente()) == null)throw new Exception("Error: No existe el cliente");
+		if(traerCliente(cliente.getDni()) == null)throw new Exception("Error: No existe el cliente");
 		
 		return lstCliente.remove(cliente);
 		

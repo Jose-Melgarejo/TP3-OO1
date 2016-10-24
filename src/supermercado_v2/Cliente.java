@@ -38,8 +38,10 @@ public class Cliente {
 	}
 	@Override
 	public String toString() {
-		return "\nCliente\nidCliente=" + idCliente + "\nnombre=" + nombre + "\ndni=" + dni + "\ndireccion=" + direccion;
+		return "Cliente [idCliente=" + idCliente + ", nombre=" + nombre + ", dni=" + dni + ", direccion=" + direccion
+				+ "]";
 	}
+	
 	
 	
 
