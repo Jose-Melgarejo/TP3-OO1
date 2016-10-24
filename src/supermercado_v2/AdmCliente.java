@@ -40,7 +40,7 @@ public class AdmCliente {
 		return true;
 		
 	}
-	private Cliente traerCliente(String nombre) {
+	public Cliente traerCliente(String nombre) {
 		Cliente cliente = null;
 		boolean stop = false;
 		for (int i = 0; i < lstCliente.size() && !stop; i++) {
