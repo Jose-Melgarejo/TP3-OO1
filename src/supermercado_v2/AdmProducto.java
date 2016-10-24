@@ -47,7 +47,7 @@ public class AdmProducto {
 		boolean  stop = false;
 		
 		for (int i = 0; i < lstProducto.size() && !stop; i++) {
-			if(lstProducto.get(i).getProducto() == productoNombre){
+			if(lstProducto.get(i).getProducto().compareToIgnoreCase(productoNombre) == 0){
 				stop = true;
 				producto = lstProducto.get(i);
 			}
