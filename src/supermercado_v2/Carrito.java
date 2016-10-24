@@ -9,10 +9,11 @@ public class Carrito {
 	GregorianCalendar	fechaHora;
 	List<ItemCarrito>	lstItem;
 	Cliente				cliente;
-	public Carrito(int idCarrito, GregorianCalendar fechaHora/*, Producto producto, int cantidad*/) {
+	public Carrito(int idCarrito, GregorianCalendar fechaHora,Cliente cliente/*, Producto producto, int cantidad*/) {
 		lstItem = new ArrayList<ItemCarrito>();
 		setIdCarrito(idCarrito);
 		setFechaHora(fechaHora);
+		setCliente(cliente);
 		//agregarItem(producto, cantidad);
 	}
 	
