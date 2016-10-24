@@ -19,12 +19,20 @@ public class AdmCarrito {
 	
 	public boolean agregarCarrito(Carrito carrito) throws Exception {
 			boolean result = false;
+			int tam_lst, idCarrito = 0;	
 			if (traerCarrito(carrito.getIdCarrito()) != null) throw new Exception("Error: El carrito ya existe");
 			result = true;
+			tam_lst = this.lstCarrito.size();
+			if (tam_lst == 0) {
+				idCarrito = 1;
+			}else{
+				idCarrito  = this.lstCarrito.get(tam_lst - 1).getIdCarrito() + 1; 
+			}
+			carrito.setIdCarrito(idCarrito);
 			this.lstCarrito.add(carrito);
+	
 			return result;
-			
-		}
+	}
 	public boolean agregarCarrito(GregorianCalendar fechaHora,Cliente cliente) throws Exception {
 		boolean result = false;
 		int tam_lst, idCarrito = 0;	
