@@ -25,6 +25,7 @@ public class AdmProducto {
 		
 		return lstProducto.remove(producto);
 	}
+
 	public boolean agregarProducto(String producto, float precio) throws Exception{
 		int tam_lst, idProducto = 0;
 		
@@ -36,7 +37,7 @@ public class AdmProducto {
 		}else{
 			idProducto = this.lstProducto.get(tam_lst - 1).getIdProducto() + 1; 
 		}
-		this.lstProducto.add(new Producto(idProducto,producto,precio));
+		this.lstProducto.add(new Producto(idProducto, producto,precio));
 
 		return true;
 		

@@ -1,9 +1,9 @@
 package supermercado_v2;
 
 public class Supermercado {
-	AdmProducto admProducto;
-	AdmCliente  admCliente;
-	AdmCarrito	admCarrito;
+	private AdmProducto admProducto;
+	private AdmCliente  admCliente;
+	private AdmCarrito	admCarrito;
 
 	public Supermercado() {
 

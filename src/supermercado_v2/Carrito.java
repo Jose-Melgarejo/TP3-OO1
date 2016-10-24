@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Carrito {
-	int 				idCarrito;
-	GregorianCalendar	fechaHora;
-	List<ItemCarrito>	lstItem;
-	Cliente				cliente;
+	private  int 				idCarrito;
+	private  GregorianCalendar	fechaHora;
+	private  List<ItemCarrito>	lstItem;
+	private  Cliente			cliente;
 	public Carrito(int idCarrito, GregorianCalendar fechaHora/*, Producto producto, int cantidad*/) {
 		lstItem = new ArrayList<ItemCarrito>();
 		setIdCarrito(idCarrito);
@@ -59,7 +59,8 @@ public class Carrito {
 			lstItem.add(new ItemCarrito(idItem, producto, cantidad));
 		}else{
 			//Lo correcto seria utilizar los setters y getter pero para acortar la sentencia:
-			traerItem(producto.getProducto()).cantidad += cantidad;
+			//traerItem(producto.getProducto()).cantidad += cantidad;
+			traerItem(producto.getProducto()).setCantidad(traerItem(producto.getProducto()).getCantidad() + cantidad);
 		}
 		return resultado;
 	}
@@ -76,7 +77,8 @@ public class Carrito {
 			}
 		}else{
 			//Lo correcto seria utilizar los setters y getter pero para acortar la sentencia:
-			traerItem(producto.getProducto()).cantidad -= cantidad;
+			//traerItem(producto.getProducto()).cantidad -= cantidad;
+			traerItem(producto.getProducto()).setCantidad(traerItem(producto.getProducto()).getCantidad() - cantidad);
 		}
 		return resultado;
 	}

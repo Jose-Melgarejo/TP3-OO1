@@ -1,9 +1,9 @@
 package supermercado_v2;
 
 public class ItemCarrito {
-	int			idItem;
-	Producto 	producto;
-	int			cantidad;
+	private int			idItem;
+	private Producto 	producto;
+	private int			cantidad;
 	
 	public ItemCarrito(int idItem, Producto producto, int cantidad) {
 		setIdItem(idItem);

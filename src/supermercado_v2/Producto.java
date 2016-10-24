@@ -1,9 +1,9 @@
 package supermercado_v2;
 
 public class Producto {
-	int 	idProducto;
-	String	producto;
-	float	precio;
+	private int 	idProducto;
+	private String	producto;
+	private float	precio;
 	
 	public Producto(int idProducto, String producto, float precio) {
 		setIdProducto(idProducto);
@@ -34,6 +34,9 @@ public class Producto {
 	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
-
+	@Override
+	public String toString() {
+		return "Producto [idProducto=" + idProducto + ", producto=" + producto + ", precio=" + precio + "]";
+	}
 	
 }
