@@ -60,7 +60,17 @@ public class AdmCarrito {
 		}
 		return carrito;
 	}
-	
+	private Carrito traerCarrito(Cliente cliente) {
+		Carrito carrito = null;
+		boolean stop = false;
+		for (int i = 0; i < lstCarrito.size() && !stop; i++) {
+			if(lstCarrito.get(i).getCliente() == cliente){
+				stop = true;
+				carrito = lstCarrito.get(i);
+			}
+		}
+		return carrito;
+	}
 	private Carrito traerCarrito(int idCarrito) {
 		Carrito carrito = null;
 		boolean stop = false;
@@ -79,6 +89,26 @@ public class AdmCarrito {
 		return lstCarrito.remove(carrito);
 		
 	}
+	public float calculatTotal(Cliente cliente){
+		
+		Carrito carrito = traerCarrito(cliente);	
+		return carrito.calcularTotal();
+		
+		
+	}
+	public float calculatTotal(int  dniCliente){
+		
+		Carrito carrito = traerCarrito(traerCliente(dniCliente));	
+		return carrito.calcularTotal();
+		
+		
+	}
+
+	private Cliente traerCliente(int dniCliente) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 
 }

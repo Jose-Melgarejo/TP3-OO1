@@ -36,5 +36,5 @@ public class Supermercado {
 		this.admCarrito = admCarrito;
 	}
 
-	
+
 }
