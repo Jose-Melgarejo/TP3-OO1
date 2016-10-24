@@ -44,7 +44,7 @@ public class AdmCliente {
 		Cliente cliente = null;
 		boolean stop = false;
 		for (int i = 0; i < lstCliente.size() && !stop; i++) {
-			if(lstCliente.get(i).getNombre() == nombre){
+			if(lstCliente.get(i).getNombre().compareToIgnoreCase(nombre) == 0){
 				stop = true;
 				cliente = lstCliente.get(i);
 			}
