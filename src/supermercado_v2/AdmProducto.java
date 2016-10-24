@@ -5,9 +5,10 @@ import java.util.List;
 
 public class AdmProducto {
 	private List<Producto> lstProducto = new ArrayList<Producto>();
-
+	public AdmProducto() {
+		
+	}
 	public AdmProducto(List<Producto> lstProducto) {
-		super();
 		this.lstProducto = lstProducto;
 	}
 

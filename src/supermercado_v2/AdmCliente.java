@@ -7,7 +7,10 @@ import java.util.List;
 
 public class AdmCliente {
 	private List<Cliente> lstCliente = new ArrayList<Cliente>();
-
+	
+	public AdmCliente() {
+		
+	}
 	public AdmCliente(List<Cliente> lstCliente) {
 		super();
 		this.lstCliente = lstCliente;
@@ -24,7 +27,7 @@ public class AdmCliente {
 	public boolean agregarCliente(String cliente, long dni, String direccion) throws Exception{
 		int tam_lst, idCliente = 0;
 		
-		if (traerCliente(cliente) != null) throw new Exception("Error: La pelicula ya existe");
+		if (traerCliente(cliente) != null) throw new Exception("Error: El cliente ya existe");
 		
 		tam_lst = this.lstCliente.size();
 		if (tam_lst == 0) {
