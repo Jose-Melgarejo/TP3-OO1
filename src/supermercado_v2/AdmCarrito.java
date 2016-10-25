@@ -3,6 +3,7 @@ package supermercado_v2;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import funciones.Funciones;
 
 
 public class AdmCarrito {
@@ -29,6 +30,7 @@ public class AdmCarrito {
 				idCarrito  = this.lstCarrito.get(tam_lst - 1).getIdCarrito() + 1; 
 			}
 			carrito.setIdCarrito(idCarrito);
+			carrito.setFechaHora(new GregorianCalendar());
 			this.lstCarrito.add(carrito);
 	
 			return result;
@@ -49,29 +51,27 @@ public class AdmCarrito {
 		return result;
 		
 	}
-	private Carrito traerCarrito(Cliente cliente, GregorianCalendar fechaHora) {
+	public Carrito traerCarrito(Cliente cliente, GregorianCalendar fechaHoraBuscada) {
 		Carrito carrito = null;
 		boolean stop = false;
 		for (int i = 0; i < lstCarrito.size() && !stop; i++) {
-			if(lstCarrito.get(i).getCliente() == cliente && lstCarrito.get(i).getFechaHora() == fechaHora){
+			if(lstCarrito.get(i).getCliente() == cliente && Funciones.sonFechasYHorasIguales(lstCarrito.get(i).getFechaHora(), fechaHoraBuscada)){
 				stop = true;
 				carrito = lstCarrito.get(i);
 			}
 		}
 		return carrito;
 	}
-	private Carrito traerCarrito(Cliente cliente) {
-		Carrito carrito = null;
-		boolean stop = false;
-		for (int i = 0; i < lstCarrito.size() && !stop; i++) {
-			if(lstCarrito.get(i).getCliente() == cliente){
-				stop = true;
-				carrito = lstCarrito.get(i);
+	public List<Carrito> traerCarrito(Cliente cliente) {
+		List<Carrito> resultado = new ArrayList<Carrito>();
+		for (int i = 0; i < lstCarrito.size(); i++) {
+			if(lstCarrito.get(i).getCliente().getDni() == cliente.getDni()){
+				resultado.add(lstCarrito.get(i));
 			}
 		}
-		return carrito;
+		return resultado;
 	}
-	private Carrito traerCarrito(int idCarrito) {
+	public Carrito traerCarrito(int idCarrito) {
 		Carrito carrito = null;
 		boolean stop = false;
 		for (int i = 0; i < lstCarrito.size() && !stop; i++) {
@@ -90,18 +90,22 @@ public class AdmCarrito {
 		
 	}
 	public float calculatTotal(Cliente cliente){
+		float acumulador = 0;
 		
-		Carrito carrito = traerCarrito(cliente);	
-		return carrito.calcularTotal();
-		
-		
+		List<Carrito> carrito_cliente = traerCarrito(cliente);
+		for (int i = 0; i < carrito_cliente.size(); i++) {
+			acumulador += carrito_cliente.get(i).calcularTotal();
+		}
+		return acumulador;
 	}
-	public float calculatTotal(int  dniCliente){
+	public float calculatTotal(long dniCliente){
+		float acumulador = 0;
 		
-		Carrito carrito = traerCarrito(traerCliente(dniCliente));	
-		return carrito.calcularTotal();
-		
-		
+		List<Carrito> carrito_cliente = traerCarrito(new Cliente(-1, "", dniCliente, ""));
+		for (int i = 0; i < carrito_cliente.size(); i++) {
+			acumulador += carrito_cliente.get(i).calcularTotal();
+		}
+		return acumulador;
 	}
 
 	private Cliente traerCliente(int dniCliente) {

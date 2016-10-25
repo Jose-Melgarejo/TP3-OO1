@@ -9,12 +9,22 @@ public class Carrito {
 	private  GregorianCalendar	fechaHora;
 	private  List<ItemCarrito>	lstItem;
 	private  Cliente			cliente;
-	public Carrito(int idCarrito, GregorianCalendar fechaHora,Cliente cliente/*, Producto producto, int cantidad*/) {
+	
+	public Carrito() {
+		
+	}
+	public Carrito(int idCarrito, GregorianCalendar fechaHora,Cliente cliente) {
 		lstItem = new ArrayList<ItemCarrito>();
 		setIdCarrito(idCarrito);
 		setFechaHora(fechaHora);
 		setCliente(cliente);
-		//agregarItem(producto, cantidad);
+	}
+	public Carrito(int idCarrito, GregorianCalendar fechaHora,Cliente cliente, Producto producto, int cantidad) {
+		lstItem = new ArrayList<ItemCarrito>();
+		setIdCarrito(idCarrito);
+		setFechaHora(fechaHora);
+		setCliente(cliente);
+		agregarItem(producto, cantidad);
 	}
 	
 	public Cliente getCliente() {
@@ -59,8 +69,6 @@ public class Carrito {
 			}
 			lstItem.add(new ItemCarrito(idItem, producto, cantidad));
 		}else{
-			//Lo correcto seria utilizar los setters y getter pero para acortar la sentencia:
-			//traerItem(producto.getProducto()).cantidad += cantidad;
 			traerItem(producto.getProducto()).setCantidad(traerItem(producto.getProducto()).getCantidad() + cantidad);
 		}
 		return resultado;
@@ -77,8 +85,6 @@ public class Carrito {
 				}
 			}
 		}else{
-			//Lo correcto seria utilizar los setters y getter pero para acortar la sentencia:
-			//traerItem(producto.getProducto()).cantidad -= cantidad;
 			traerItem(producto.getProducto()).setCantidad(traerItem(producto.getProducto()).getCantidad() - cantidad);
 		}
 		return resultado;

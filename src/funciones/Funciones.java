@@ -204,7 +204,11 @@ public class Funciones {
 	}
 	
 	public static boolean sonFechasHorasIguales (GregorianCalendar fecha1, GregorianCalendar fecha2) {
-		return ((fecha1.get(Calendar.HOUR_OF_DAY) == fecha2.get(Calendar.HOUR_OF_DAY)) && (fecha1.get(Calendar.MINUTE) == fecha2.get(Calendar.MINUTE)));
+		return ((fecha1.get(Calendar.HOUR_OF_DAY) == fecha2.get(Calendar.HOUR_OF_DAY)) && (fecha1.get(Calendar.MINUTE) == fecha2.get(Calendar.MINUTE)) && (fecha1.get(Calendar.SECOND) == fecha2.get(Calendar.SECOND)));
+	}
+	
+	public static boolean sonFechasYHorasIguales (GregorianCalendar fecha1, GregorianCalendar fecha2) {
+		return (sonFechasIguales(fecha1, fecha2) && sonFechasHorasIguales(fecha1, fecha2));
 	}
 	
 	public static double diferenciaFechaEnHoras(GregorianCalendar fechaInicio, GregorianCalendar fechaFin){
