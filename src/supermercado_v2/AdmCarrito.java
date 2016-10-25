@@ -107,12 +107,6 @@ public class AdmCarrito {
 		}
 		return acumulador;
 	}
-
-	private Cliente traerCliente(int dniCliente) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	
 
 }
