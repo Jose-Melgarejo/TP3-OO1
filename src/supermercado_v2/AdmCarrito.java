@@ -62,13 +62,14 @@ public class AdmCarrito {
 		}
 		return carrito;
 	}
-	public List<Carrito> traerCarrito(Cliente cliente) {
+	public List<Carrito> traerCarrito(Cliente cliente) throws Exception {
 		List<Carrito> resultado = new ArrayList<Carrito>();
 		for (int i = 0; i < lstCarrito.size(); i++) {
 			if(lstCarrito.get(i).getCliente().getDni() == cliente.getDni()){
 				resultado.add(lstCarrito.get(i));
 			}
 		}
+		if (resultado.isEmpty()) throw new Exception("No hay carrito de este cliente");
 		return resultado;
 	}
 	public Carrito traerCarrito(int idCarrito) {
@@ -89,7 +90,7 @@ public class AdmCarrito {
 		return lstCarrito.remove(carrito);
 		
 	}
-	public float calculatTotal(Cliente cliente){
+	public float calculatTotal(Cliente cliente) throws Exception{
 		float acumulador = 0;
 		
 		List<Carrito> carrito_cliente = traerCarrito(cliente);
@@ -98,7 +99,7 @@ public class AdmCarrito {
 		}
 		return acumulador;
 	}
-	public float calculatTotal(long dniCliente){
+	public float calculatTotal(long dniCliente) throws Exception{
 		float acumulador = 0;
 		
 		List<Carrito> carrito_cliente = traerCarrito(new Cliente(-1, "", dniCliente, ""));
